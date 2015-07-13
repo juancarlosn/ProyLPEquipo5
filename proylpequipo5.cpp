@@ -4,6 +4,7 @@
 main()
 {
 int opcion;
+char noma[40],nose[40],dise[40],hoini[40],hofin[40];
 cout<<"+++++++---------ESCUELA SUPERIOR POLITECNICA DE CHIMBORAZO-------+++++++++++++++\n";
 cout<<"+++++++++++++++-------LENGUAJES DE PROGRAMACION----------+++++++++++++++++++++++\n";
 cout<<"Titulo del Proyecto: Horario de clases\n";
@@ -17,6 +18,16 @@ cin>>opcion;
 switch(opcion)
 {
 case 1:
+cout<<"*-Nombre de la materia\n";
+cin>>noma;
+cout<<"*-Nombre del semestre\n";
+cin>>nose;
+cout<<"*-Dia de la semana\n";
+cin>>dise;
+cout<<"*-Hora de inicio\n";
+cin>>hoini;
+cout<<"*-Hora de fin\n";
+cin>>hofin;
 break;
 case 2:
 break;
