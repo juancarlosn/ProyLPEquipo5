@@ -1,10 +1,10 @@
 #include <conio>
 #include <iostream>
-
-main()
+#include <<time.gh>
+struct horario
 {
 int opcion;
-char noma[40],nose[40],dise[40],hoini[40],hofin[40];
+char ma[40],se[40],dia[40],hini[40],hfin[40];
 cout<<"+++++++---------ESCUELA SUPERIOR POLITECNICA DE CHIMBORAZO-------+++++++++++++++\n";
 cout<<"+++++++++++++++-------LENGUAJES DE PROGRAMACION----------+++++++++++++++++++++++\n";
 cout<<"Titulo del Proyecto: Horario de clases\n";
@@ -19,15 +19,21 @@ switch(opcion)
 {
 case 1:
 cout<<"*-Nombre de la materia\n";
-cin>>noma;
+cin>>ma;
 cout<<"*-Nombre del semestre\n";
-cin>>nose;
+cin>>se;
 cout<<"*-Dia de la semana\n";
-cin>>dise;
+cin>>dia;
+struct tm
+{
+int tm_sec
+int tm_hour;
+int tm_min
 cout<<"*-Hora de inicio\n";
-cin>>hoini;
+cin>>hini;
 cout<<"*-Hora de fin\n";
-cin>>hofin;
+cin>>hfin;
+}
 break;
 case 2:
 break;
@@ -36,5 +42,11 @@ break;
 case 4:
 break;
 }
-getch();
+}
+main()
+{
+horario h[20];
+cin>>h.ma;
+cin>>h.se;
+getch
 }
