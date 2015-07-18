@@ -1,10 +1,16 @@
 #include <conio>
 #include <iostream>
-#include <<time.gh>
+//#include <<time>
 struct horario
 {
+char ma[40],se[40],dia[40] hini[20],hfin[20];
+//time hini
+//time hfin
+};
+int menu()
+{
 int opcion;
-char ma[40],se[40],dia[40],hini[40],hfin[40];
+do{
 cout<<"+++++++---------ESCUELA SUPERIOR POLITECNICA DE CHIMBORAZO-------+++++++++++++++\n";
 cout<<"+++++++++++++++-------LENGUAJES DE PROGRAMACION----------+++++++++++++++++++++++\n";
 cout<<"Titulo del Proyecto: Horario de clases\n";
@@ -15,38 +21,93 @@ cout<<"3.Ver el horario de la semana\n";
 cout<<"4.Salir\n";
 cout<<"SELECCIONE UNA OPCION\n";
 cin>>opcion;
-switch(opcion)
+return(opcion);
+ } while (opcion!=0);
+ }
+void ingreso(horario h[])
 {
-case 1:
-cout<<"*-Nombre de la materia\n";
-cin>>ma;
-cout<<"*-Nombre del semestre\n";
-cin>>se;
-cout<<"*-Dia de la semana\n";
-cin>>dia;
-struct tm
+   int n;
+   for (int i=1;i<5;i++)
+   {
+   do
+   {
+   for (int j=1;j<=10;j++)
+   {
+    cout<<"Ingrese el dia\n";
+    cin>>h[j].dia;
+    cout<<"ingrese su semestre\n";
+    cin>>h[j].sem;
+    cout<<"ingrese su materia\n";
+    cin>>h[j].ma;
+    cout<<"ingrese su hora inicial\n";
+    cin>>h[j].hini
+    cout<<"ingrese su hora final\n";
+    cin>>h[j].hfin
+    cout<<"Desea  seguir ingresando mas horas de clases\n";
+    cout<<"En caso de seguir ingresando presione 1 y en caso contrario presione 0  para salir  del dia\n";
+    cin>>n;
+}
+
+ }while(n!=0);
+       }
+ }
+
+void impresion(horario h[])
 {
-int tm_sec
-int tm_hour;
-int tm_min
-cout<<"*-Hora de inicio\n";
-cin>>hini;
-cout<<"*-Hora de fin\n";
-cin>>hfin;
+
+  for  (int i=1;i<=5;i++)
+     {
+         cout<<"El dia es\n";
+         cout<<h[i].dia;
+         cout<<"El semestre es\n";
+         cout<<h[i].sem;
+         cout<<"Ingrese la materia\n";
+         cout<<h[i].mat;
+         cout<<"Ingrese la hora inicial\n";
+         cin>>h[i].hini;
+         cout<<"Ingrese la hora final\n";
+         cin>>h[i].hfin;
+
+
+      }
+
+
+
+
 }
-break;
-case 2:
-break;
-case 3:
-break;
-case 4:
-break;
-}
-}
-main()
+
+
+ main ()
+
 {
-horario h[20];
-cin>>h.ma;
-cin>>h.se;
-getch
+
+int op,opcion;
+
+   horario h[10];
+
+do{
+         op=menu();
+
+
+   switch (op)
+
+   {
+
+   case 1:
+   ingreso (h);
+   break;
+   case 2:
+   impresion(h);
+   break;
+
+
+   }
+}while(op!=0);
+
+
+
+
+
+
+   getch();
 }
