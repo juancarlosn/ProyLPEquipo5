@@ -1,113 +1,108 @@
-#include <conio>
-#include <iostream>
-//#include <<time>
-struct horario
+#include<iostream>
+#include<conio>
+#include<time>
+#include<fstream>
+#include<stdio>
+#include<stdlib>
+
+int MenuDatos(int menu)
 {
-char ma[40],se[40],dia[40] hini[20],hfin[20];
-//time hini
-//time hfin
-};
-int menu()
+      int w;
+// primer ingreso al menu con lazo mientras este en el rango 1 a 4
+ do
+  {
+   		cout<<"Ingrese la opcion que desea realizar\n";
+   		cin>>menu;
+   	if(menu>4)
+   	{
+    		cout<<"Opcion no valida\n";
+   	}
+  }while(w<0 && w>=4);
+  return menu;
+}
+
+//CUERPO PRINCIPAL DEL PROGRAMA
+
+main()
 {
-int opcion;
-do{
-cout<<"+++++++---------ESCUELA SUPERIOR POLITECNICA DE CHIMBORAZO-------+++++++++++++++\n";
-cout<<"+++++++++++++++-------LENGUAJES DE PROGRAMACION----------+++++++++++++++++++++++\n";
-cout<<"Titulo del Proyecto: Horario de clases\n";
-cout<<"MENU PRINCIPAL\n";
-cout<<"1.Ingresar una nueva hora de clases\n";
-cout<<"2.Ver el horario de hoy\n";
-cout<<"3.Ver el horario de la semana\n";
-cout<<"4.Salir\n";
-cout<<"SELECCIONE UNA OPCION\n";
-cin>>opcion;
-return(opcion);
- } while (opcion!=0);
- }
-void ingreso(horario h[])
-{
-   int n;
-   for (int i=1;i<5;i++)
-   {
+  	char fecha[40], hora[40], horah[40];
+   int w, horario, opc;
+   //Creacion del archivo horario
+   ofstream archivo("C:/BC5/Archivos/horario.txt");
+	archivo<<"\n";
+	archivo.close();
+
    do
    {
-   for (int j=1;j<=10;j++)
-   {
-    cout<<"Ingrese el dia\n";
-    cin>>h[j].dia;
-    cout<<"ingrese su semestre\n";
-    cin>>h[j].sem;
-    cout<<"ingrese su materia\n";
-    cin>>h[j].ma;
-    cout<<"ingrese su hora inicial\n";
-    cin>>h[j].hini
-    cout<<"ingrese su hora final\n";
-    cin>>h[j].hfin
-    cout<<"Desea  seguir ingresando mas horas de clases\n";
-    cout<<"En caso de seguir ingresando presione 1 y en caso contrario presione 0  para salir  del dia\n";
-    cin>>n;
-}
 
- }while(n!=0);
-       }
- }
+   		cout<<"+++++++---------ESCUELA SUPERIOR POLITECNICA DE CHIMBORAZO-------+++++++++++++++\n";
+   		cout<<"+++++++++++++++-------LENGUAJES DE PROGRAMACION----------+++++++++++++++++++++++\n";
+   		cout<<"Titulo del Proyecto: Horario de clases\n";
+   		cout<<"MENU PRINCIPAL\n";
+   		cout<<"1.Ingresar una nueva hora de clases\n";
+   		cout<<"2.Ver el horario de hoy\n";
+     		cout<<"3.Ver el horario de la semana\n";
+   		cout<<"4.Salir\n";
+   		opc = MenuDatos(w);
+         switch(opc)
+   		{
 
-void impresion(horario h[])
-{
+   			cout<<" El valor ingresado es incorrecto\n";
+            char mat[40], sem[10],  dia[10], ini[40], fin[40], caracter;
+    			case 1:
 
-  for  (int i=1;i<=5;i++)
-     {
-         cout<<"El dia es\n";
-         cout<<h[i].dia;
-         cout<<"El semestre es\n";
-         cout<<h[i].sem;
-         cout<<"Ingrese la materia\n";
-         cout<<h[i].mat;
-         cout<<"Ingrese la hora inicial\n";
-         cin>>h[i].hini;
-         cout<<"Ingrese la hora final\n";
-         cin>>h[i].hfin;
+      			cout<<"Ingresar los siguientes datos requeridos: \n\n";
+      			cout<<"Nombre de la materia : \n";
+      			cin>>mat;
+					cout<<"Nombre del semestre: \n";
+      			cin>>sem;
+      			cout<<"Dia de la semana: \n";
+         		scanf("%s",&dia);
+//Restringe en caso de que el dia no sea ingresado en el formato correcto
+            while(strcmp(dia,"LUN")!=0 && strcmp(dia,"MAR")!=0 && strcmp(dia,"MIE")!=0 && strcmp(dia,"JUE")!=0 && strcmp(dia,"VIE")!=0)
+            {
+               printf("Formato permtido para el ingreso: LUN, MAR, MIE, JUE, VIE\nVuelva a ingresar el dia correctamente: \n");
+               scanf("%s",&dia);
+         	}
+      		cout<<"Ingrese la hora de inicio: \n";
+      		scanf("%s",&ini);
+//Restringe para que las horas sean exactas y  empiezen desde las 7 am hasta las 9 pm que es un horario usual
+         	while(strcmp(ini,"07h00")!=0 && strcmp(ini,"08h00")!=0 && strcmp(ini,"09h00")!=0 && strcmp(ini,"10h00")!=0 && strcmp(ini,"11h00")!=0 && strcmp(ini,"12h00")!=0 && strcmp(ini,"13h00")!=0 && strcmp(ini,"14h00")!=0 && strcmp(ini,"15h00")!=0 && strcmp(ini,"16h00")!=0 && strcmp(ini,"17h00")!=0 && strcmp(ini,"18h00")!=0 && strcmp(ini,"19h00")!=0 && strcmp(ini,"20h00")!=0 && strcmp(ini,"21h00")!=0)
+         	{
+          		printf("Formato permitido para el ingreso: 07h00\nVuelva a ingresar correctamente la hora de inicio\n");
+               scanf("%s",&ini);
+            }
 
+            cout<<"Ingrese la hora fin: \n";
+      	   scanf("%s",&fin);
+            while(strcmp(fin,"07h00")!=0 && strcmp(fin,"08h00")!=0 && strcmp(fin,"09h00")!=0 && strcmp(fin,"10h00")!=0 && strcmp(fin,"11h00")!=0 && strcmp(fin,"12h00")!=0 && strcmp(fin,"13h00")!=0 && strcmp(fin,"14h00")!=0 && strcmp(fin,"15h00")!=0 && strcmp(fin,"16h00")!=0 && strcmp(fin,"17h00")!=0 && strcmp(fin,"18h00")!=0 && strcmp(fin,"19h00")!=0 && strcmp(fin,"20h00")!=0 && strcmp(fin,"21h00")!=0)
+            {
+           		printf("Formato permitido para el ingreso: 07h00\nVuelva a ingresar correctamente la hora fin\n");
+          		scanf("%s",&fin);
+            }
 
-      }
+				cout<<" Para regresar al menu de inicio presione una tecla.....\n\n";
+         getch();
+      break;
 
+      case 2:
 
+         getch();
 
+      break;
 
-}
+      case 3:
 
+         getch();
+      break;
 
- main ()
+      case 4:
+      	return 0;
+      break;
 
-{
+    }
 
-int op,opcion;
+  }while(w=4);
 
-   horario h[10];
-
-do{
-         op=menu();
-
-
-   switch (op)
-
-   {
-
-   case 1:
-   ingreso (h);
-   break;
-   case 2:
-   impresion(h);
-   break;
-
-
-   }
-}while(op!=0);
-
-
-
-
-
-
-   getch();
+getch();
 }
